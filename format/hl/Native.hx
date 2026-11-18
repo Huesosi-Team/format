@@ -28,29 +28,19 @@ class Native {
 
 #if hl
 
-	#if (hl_ver >= version("1.16.0"))
 	/**
-		Encode JPG data and returns the buffer containing the encoded data. The length of the buffer is returned through outLength. Returns null if the encoding failed.
+		Read image dimensions through SDL_image
 	**/
-	@:hlNative("fmt", "jpg_encode")
-	public static function encodeJPG(src:hl.Bytes, width:Int, height:Int, stride:Int, format:PixelFormat, subsampling:Subsampling, quality:Int, flags:Int, outLength:hl.Ref<Int>):Null<hl.Bytes> {
-		return null;
-	}
-	#end
-
-	/**
-		Decode JPG data into the target buffer.
-	**/
-	@:hlNative("fmt", "jpg_decode")
-	public static function decodeJPG(src:hl.Bytes, srcLen:Int, dst:hl.Bytes, width:Int, height:Int, stride:Int, format:PixelFormat, flags:Int):Bool {
+	@:hlNative("fmt", "img_info")
+	public static function imgInfo(src:hl.Bytes, srcLen:Int, width:hl.Ref<Int>, height:hl.Ref<Int>):Bool {
 		return false;
 	}
 
 	/**
-		Decode PNG data into the target buffer.
+		Decode image data into the target buffer through SDL_image
 	**/
-	@:hlNative("fmt", "png_decode")
-	public static function decodePNG(src:hl.Bytes, srcLen:Int, dst:hl.Bytes, width:Int, height:Int, stride:Int, format:PixelFormat, flags:Int):Bool {
+	@:hlNative("fmt", "img_decode")
+	public static function imgDecode(src:hl.Bytes, srcLen:Int, dst:hl.Bytes, width:Int, height:Int, stride:Int, format:PixelFormat, flags:Int):Bool {
 		return false;
 	}
 
